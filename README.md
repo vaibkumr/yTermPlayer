@@ -17,9 +17,13 @@ Features:
 
 ### Installation
 First install the dependencies: 
-
 ```sh
 $ pip install -r requirements.txt 
+```
+or
+
+```sh
+$ pip install  pafy==0.5.4 python-dateutil==2.7.3 python-vlc==3.0.102 urwid==2.0.1 virtualenv==15.1.0 youtube-dl==2018.8.4
 ```
 python3 pip :-
 ```sh
