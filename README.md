@@ -28,6 +28,7 @@ $ pip install  pafy==0.5.4 python-dateutil==2.7.3 python-vlc==3.0.102 urwid==2.0
 python3 pip :-
 ```sh
 $ pip install ytermplayer
+$ yterm
 ```
 or Git clone :-
 ```sh
@@ -35,7 +36,6 @@ $ git clone https://github.com/TimeTraveller-San/yTermPlayer
 $ cd yTermPlayer/yTermPlayer/
 $ python __main__.py
 ```
-
 ### Dependencies
 Python 3
 ytTerm player uses a number of open source projects to work properly:
@@ -70,6 +70,7 @@ more features coming soon
 
 ### Screenshots
 ### Working video:  https://youtu.be/rQpO1qBmxlY
+### Workking video 2: https://youtu.be/bQrNtcIcHc0
 ### Start  screen : 
 ![Start Screem](https://i.imgur.com/rvVUmDP.png)
 #### The UI will automatically use your terminal colors.
