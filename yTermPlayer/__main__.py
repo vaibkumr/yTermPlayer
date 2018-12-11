@@ -1,8 +1,17 @@
+'''
+yTermPlayer by TimeTraveller
+(https://github.com/TimeTraveller-San/yTermPlayer)
+Special thanks for these libraries and their contributors:
+- urwid
+- pafy
+- python-mpv
+'''
 import os
 import urwid
 from .music_api import YoutubePlayer
 from .ui import player_ui
 from .settings import PL_DIR
+
 #Palette for the urwid UI
 palette = [
     ('reversed', 'standout', ''),
