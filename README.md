@@ -84,9 +84,22 @@ more features coming soon
    [vlc]: <https://github.com/oaubert/python-vlc>
    [pafy]: <https://github.com/mps-youtube/pafy>
 
+### FAQ
+- How to fix out of range/url not found errors?
+YouTube keeps changing its structure so it's important you have installed the latest version of youtube-dl as follows:
+` pip install --upgrade youtube_dl `
+
+- Where are my playlists stored and how to delete playlists?
+Playlists are saved in `$HOME/.yTermPlayer/playlists` as plain text. You may delete or add new playlists directly here.
+
+- How to contact me?
+time.traveller.san@gmail.com
+https://twitter.com/timetravellertt
+
+
 ### Known Bugs
 - ~~Buggy / unexpected playback behavior~~
 It was caused because of race conditions and absence of critical section among the threads. Fixed it using semaphores
 
 - ~~If some VLC error starts showing up on the screen, just resize the terminal and it will be gone~~
-Completely removed VLC and replaced it with much more minimal and faster mpv player
+Completely removed VLC and replaced it with much more minimal and faster mpv player. Thank to [python-mpv by jaseg](https://github.com/jaseg/python-mpv)

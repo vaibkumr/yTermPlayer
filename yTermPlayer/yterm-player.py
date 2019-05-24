@@ -11,9 +11,9 @@ Special thanks for these libraries and their contributors:
 from .music_api import YoutubePlayer
 from .ui import player_ui
 from .settings import PL_DIR
-
 import os
 import urwid
+
 palette = [
     ('reversed', 'standout', ''),
     ('b', 'black', 'dark gray'),

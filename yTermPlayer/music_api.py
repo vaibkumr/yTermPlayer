@@ -17,6 +17,7 @@ import threading
 from random import randint
 import math
 from .settings import PL_DIR
+import locale
 
 ## REPLACE WITH SEMAPHORES
 def structure_time(seconds, minutes, hours):
@@ -79,6 +80,7 @@ class YoutubePlayer:
         for every_file in os.listdir(PL_DIR):
             self.saved_lists.append(every_file)
         #Initialize MPV player
+        locale.setlocale(locale.LC_NUMERIC, "C")
         self.player = mpv.MPV()
 
 
@@ -158,7 +160,7 @@ class YoutubePlayer:
                 self.playlist['items'][int(index)]['pafy'].title
                 ]
         except Exception as error:
-            print("There is an error in fetching this")
+            print(f"There is an error in fetching this {error}")
             return False
 
     def get_next_index(self):
@@ -227,8 +229,6 @@ class YoutubePlayer:
         self._currentSong = details[1]
         if(url==False):
             return False
-        # print("i am playing: ",index)
-        # self.player.set_mrl(url)
         self.player.play(url)
         #Remove lock on continous_player
         while(not self.is_playing()):
@@ -327,44 +327,3 @@ class YoutubePlayer:
         else:
             self.toggle_togglerLock(True)
             self.player.pause = True
-
-        # if(self.is_playing()):
-        #     self.toggle_togglerLock(True)
-        #     self.player.pause()
-        # else:
-        #     self.player.play()
-        #     self.toggle_togglerLock(False)
-
-
-#GRAVEYARD
-#TESTING
-# if __name__=="__main__":
-#     player_object=YoutubePlayer()
-#     print("Object made")
-#     #player_object.initPlaylist("https://www.youtube.com/playlist?list=PLHLDQyQ-L9cSk--81-S01IdYXRilDbpeH")
-#     player_object.initPlaylist("https://www.youtube.com/playlist?list=PLHLDQyQ-L9cRjRjBJCBJOJ9MeMHpLY-oe")
-#     print("Playlist Initialized")
-#     player_object.set_repeat_mode(2)
-#
-#     # player_object.load_saved_playlist("animu")
-#     ch=""
-#     input("Show data [ENTER] ")
-#     xyz=player_object.get_list_data()
-#     for a in xyz:
-#         print(a)
-#     player_object.save_current_list()
-#     print("started playing ")
-#     player_object.start_playing()
-#
-#     while(ch!="-1"):
-#         print("this it??",player_object.current_song_name())
-#         ch=input("n? p? ")
-#         if(ch=="n"):
-#             print("Next!")
-#             player_object.play_next()
-#         elif(ch=="p"):
-#             player_object.play_prev()
-#         elif(int(ch)==-1):
-#             exit()
-#         else:
-#             player_object.play_at_index(int(ch))
