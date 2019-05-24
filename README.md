@@ -86,15 +86,18 @@ more features coming soon
 
 ### FAQ
 - How to fix out of range/url not found errors?
+
 YouTube keeps changing its structure so it's important you have installed the latest version of youtube-dl as follows:
 ` pip install --upgrade youtube_dl `
 
 - Where are my playlists stored and how to delete playlists?
+
 Playlists are saved in `$HOME/.yTermPlayer/playlists` as plain text. You may delete or add new playlists directly here.
 
 - How to contact me?
-time.traveller.san@gmail.com
-https://twitter.com/timetravellertt
+
+**Email:** time.traveller.san@gmail.com
+**Twitter:** https://twitter.com/timetravellertt
 
 
 ### Known Bugs
