@@ -1,6 +1,7 @@
 # ytTerm player (BETA)
 Play youtube playlists as audio on linux terminal
 
+[![PyPI version](https://badge.fury.io/py/yTermPlayer.svg)](https://badge.fury.io/py/yTermPlayer)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## About
