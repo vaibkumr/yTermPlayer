@@ -4,7 +4,7 @@ import setuptools
 LONG_DESC = open('README.md').read()
 setuptools.setup(
     name="yTermPlayer",
-    version="1.2.0",
+    version="1.2.1",
     author="Time Traveller",
     author_email="time.traveller.san@gmail.com",
     description="Play youtube playlists as audio on linux terminal ",
