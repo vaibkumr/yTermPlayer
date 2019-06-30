@@ -1,8 +1,10 @@
 # ytTerm player (BETA)
 Play youtube playlists as audio on linux terminal
 
+[![Build Status](https://travis-ci.com/SamSamhuns/yTermPlayer.svg?branch=master)](https://travis-ci.com/SamSamhuns/yTermPlayer)
 [![PyPI version](https://badge.fury.io/py/yTermPlayer.svg)](https://badge.fury.io/py/yTermPlayer)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/yTermPlayer.svg)](https://pypi.python.org/pypi/yTermPlayer/)
+[![PyPI license](https://img.shields.io/pypi/l/yTermPlayer.svg)](https://pypi.python.org/pypi/yTermPlayer/)
 
 ## About
 ytTerm player is a terminal youtube music player. It's completely written in python.
@@ -58,13 +60,13 @@ ytTerm player itself is open source. Feel free to modify and distribute the code
 | :---: | :---:                                |
 | s     | save current list                    |
 | enter | select option/play song at selection |
-| n     | play next song                       |  
-| p     | play previous song                   |  
-| space | pause/play song                      |  
-| q     | quit                                 |  
-| 1     | playback mode: Repeat one            |  
-| 2     | playback mode: Repeat list           |  
-| 3     | playback mode: None                  |  
+| n     | play next song                       |
+| p     | play previous song                   |
+| space | pause/play song                      |
+| q     | quit                                 |
+| 1     | playback mode: Repeat one            |
+| 2     | playback mode: Repeat list           |
+| 3     | playback mode: None                  |
 | r     | playback mode: Random                |
 more features coming soon
 
