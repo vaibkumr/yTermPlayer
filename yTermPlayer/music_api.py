@@ -46,6 +46,8 @@ class YoutubePlayer:
     def __init__(self):
         #URL of list
         self.url = ""
+        #Player volume
+        self.volume = 100
         #Set unlock on continous_player
         self._lock = False
         #Semaphore for the shared _lock variable
@@ -327,3 +329,34 @@ class YoutubePlayer:
         else:
             self.toggle_togglerLock(True)
             self.player.pause = True
+
+    def get_volume(self):
+        return self.volume
+
+    def set_volume(self, volume):
+        if volume > 100 or volume < 0:
+            return False
+
+        self.volume = volume
+        self.player['volume'] = volume
+
+        return True
+
+    def volume_up(self):
+        volume = self.get_volume() + 10
+        if volume > 100:
+            volume = 100
+
+        self.set_volume(volume)
+
+        return True
+
+    def volume_down(self):
+        volume = self.get_volume() - 10
+
+        if volume < 0:
+            volume = 0
+
+        self.set_volume(volume)
+
+        return True

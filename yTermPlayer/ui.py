@@ -229,6 +229,11 @@ class player_ui(YoutubePlayer):
         self.txt2_2.set_text("[PAUSED]: "
                             + str(self.player_object.current_song_name()))
 
+    def volume_up(self):
+        self.player_object.volume_up()
+
+    def volume_down(self):
+        self.player_object.volume_down()
 
     def save_list(self):
 
@@ -246,6 +251,8 @@ class player_ui(YoutubePlayer):
         '2': self.change_play_mode_to_repeat_list,
         '3': self.change_play_mode_to_repeat_off,
         'r': self.change_play_mode_to_random,
+        'u': self.volume_up,
+        'd': self.volume_down,
         }
         try:
             key_dict[key]()
