@@ -57,7 +57,7 @@ ytTerm player itself is open source. Feel free to modify and distribute the code
 ### KeyBindings
 
 | Key   | Function                             |
-| :---: | :---:                                |
+| :---  | :---                                 |
 | s     | save current list                    |
 | enter | select option/play song at selection |
 | n     | play next song                       |
