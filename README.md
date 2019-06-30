@@ -63,6 +63,8 @@ ytTerm player itself is open source. Feel free to modify and distribute the code
 | n     | play next song                       |
 | p     | play previous song                   |
 | space | pause/play song                      |
+| u     | volume up                            |
+| d     | volume down                          |
 | q     | quit                                 |
 | 1     | playback mode: Repeat one            |
 | 2     | playback mode: Repeat list           |
