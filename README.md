@@ -22,28 +22,29 @@ Features:
 - Download complete list (coming soon)
 
 ### Installation
-First install the dependencies:
+
+Set up a virtual environment and install the dependencies:
 ```sh
 $ pip install -r requirements.txt
 ```
-or
 
-```sh
-$ pip install  pafy==0.5.4 python-dateutil==2.7.3 python-mpv==0.3.9 urwid==2.0.1 virtualenv==15.1.0 youtube-dl==2018.8.4
-```
 python3 pip :-
 ```sh
 $ pip install ytermplayer
 $ yterm
 ```
+
 or Git clone :-
 ```sh
 $ git clone https://github.com/TimeTraveller-San/yTermPlayer
 $ cd yTermPlayer/yTermPlayer/
 $ python __main__.py
 ```
+
 ### Dependencies
+
 Python 3
+
 ytTerm player uses a number of open source projects to work properly:
 
 *   [urwid][urwid]
