@@ -82,7 +82,7 @@ class YoutubePlayer:
             self.saved_lists.append(every_file)
         #Initialize MPV player
         locale.setlocale(locale.LC_NUMERIC, "C")
-        self.player = mpv.MPV()
+        self.player = None
 
 
     def get_index(self):
@@ -274,6 +274,8 @@ class YoutubePlayer:
         return self.time_details
 
     def start_playing(self):
+        if not self.player:
+            self.player = mpv.MPV()
         thread = threading.Thread(target = self.continous_player, args={})
         thread.daemon = True
         thread.start()
