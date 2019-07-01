@@ -227,6 +227,8 @@ class YoutubePlayer:
             pass
         #Play current index
         details = self.get_url_and_name(index)
+        if not details:
+            return False
         url = details[0]
         self._currentSong = details[1]
         if(url==False):
