@@ -9,7 +9,7 @@ Special thanks for these libraries and their contributors:
 - python-mpv
 '''
 import urwid
-import time,os,sys
+import time, os, sys
 from .music_api import YoutubePlayer
 
 LIST_LOCK = True
@@ -104,9 +104,9 @@ class player_ui(YoutubePlayer):
 
     def draw_ui(self):
         #Draws the start UI
-        self.bottom=self.make_player_ui()
-        self.top=self.start_screen()
-        self.ui_object=urwid.Padding(urwid.Overlay(self.top, self.bottom,
+        self.bottom = self.make_player_ui()
+        self.top = self.start_screen()
+        self.ui_object = urwid.Padding(urwid.Overlay(self.top, self.bottom,
                                     'center', 50,
                                     'middle', 20,
                                     min_width=None,
@@ -128,20 +128,46 @@ class player_ui(YoutubePlayer):
                             min_width=1, box_columns=None
                             )
         head_widget=urwid.Pile([cols],focus_item=None)
-        head_final_widget=self.body=urwid.LineBox(head_widget, title='Terminal Youtube Player', title_align='center', tlcorner='┌', tline='─', lline='│', trcorner='┐', blcorner='└', rline='│', bline='─', brcorner='┘')
+        head_final_widget=self.body=urwid.LineBox(
+                        head_widget, title='Terminal Youtube Player',
+                        title_align='center', tlcorner='┌', tline='─',
+                        lline='│', trcorner='┐',blcorner='└',
+                        rline='│', bline='─', brcorner='┘'
+                        )
         #body
-        self.list=urwid.SimpleFocusListWalker([])
-        heading=urwid.Columns([(6,urwid.Text(u"Track",align='left')),(15,urwid.Text(u"Duration",align='left')),urwid.Text(u"Title",align='left'),urwid.Text(u"Artist",align='left')], dividechars=0, focus_column=None, min_width=1, box_columns=None)
-        self.playlistbox=urwid.ListBox(self.list)
-        self.body_pile=urwid.Pile([(1,urwid.Filler(heading,valign='top',height='pack', min_height=None, top=0, bottom=0)),(1,urwid.Filler(urwid.Divider())),self.playlistbox],focus_item=2)
-        self.body=urwid.LineBox(self.body_pile, title="", title_align='center', tlcorner='┌', tline='─', lline='│', trcorner='┐', blcorner='└', rline='│', bline='─', brcorner='┘')
+        self.list = urwid.SimpleFocusListWalker([])
+        heading=urwid.Columns(
+                        [(6,urwid.Text(u"Track",align='left')),
+                        (15,urwid.Text(u"Duration",align='left')),
+                        urwid.Text(u"Title",align='left'),urwid.Text(
+                        u"Artist",align='left')], dividechars=0,
+                        focus_column=None, min_width=1, box_columns=None
+                        )
+        self.playlistbox = urwid.ListBox(self.list)
+        self.body_pile = urwid.Pile(
+                        [(1,urwid.Filler(heading,valign='top', height='pack',
+                        min_height=None, top=0, bottom=0)),
+                        (1,urwid.Filler(urwid.Divider())),self.playlistbox],
+                        focus_item=2
+                        )
+        self.body = urwid.LineBox(
+                                self.body_pile, title="", title_align='center',
+                                tlcorner='┌', tline='─', lline='│',
+                                trcorner='┐', blcorner='└', rline='│',
+                                bline='─', brcorner='┘'
+                                )
         #Footer Progress bar
         self.pb = my_bar("reversed","highlight" )
         self.pb.set_completion(0)
-        self.pb_text=urwid.Text("",align='right')
-        footer_widget=urwid.Columns([self.pb,(14,self.pb_text)],dividechars=0, focus_column=None, min_width=1, box_columns=None)
+        self.pb_text = urwid.Text("",align='right')
+        footer_widget = urwid.Columns(
+                                [self.pb,(14,self.pb_text)],dividechars=0,
+                                focus_column=None, min_width=1,
+                                box_columns=None
+                                )
         #Final player_ui object
-        player_ui_object=urwid.Frame(self.body, header=head_final_widget, footer=footer_widget, focus_part='body')
+        player_ui_object = urwid.Frame(self.body, header=head_final_widget,
+                                footer=footer_widget, focus_part='body')
         return urwid.Padding(player_ui_object,right=0,left=0)
 
     def start_screen(self):
@@ -154,20 +180,32 @@ class player_ui(YoutubePlayer):
         txt2 = urwid.AttrMap(txt2_2,None,focus_map='reversed')
         start_list=urwid.SimpleFocusListWalker([txt1,txt2])
         box=urwid.ListBox(start_list)
-        selection=urwid.LineBox(box, title='', title_align='center', tlcorner='┌', tline='─', lline='│', trcorner='┐', blcorner='└', rline='│', bline='─', brcorner='┘')
+        selection=urwid.LineBox(
+                                box, title='', title_align='center',
+                                tlcorner='┌', tline='─', lline='│',
+                                trcorner='┐', blcorner='└', rline='│',
+                                bline='─', brcorner='┘'
+                                )
         selection_with_padding=urwid.Padding(selection,left=2,right=2)
         return selection_with_padding
 
     def input_screen(self,button):
         #overlay second screen after start case1
         txt=urwid.Text("Enter the URL below: ")
-        url_field=urwid.Edit(caption='', edit_text='', multiline=False, align='left', wrap='space', allow_tab=False, edit_pos=None, layout=None, mask=None)
+        url_field=urwid.Edit(caption='', edit_text='', multiline=False,
+                            align='left', wrap='space', allow_tab=False,
+                            edit_pos=None, layout=None, mask=None)
         btn=urwid.Button("OK",user_data=None)
         url_button = urwid.AttrMap(btn,None,focus_map='reversed')
         urwid.connect_signal(btn, 'click', self.input_url,url_field)
         wid=urwid.Pile([txt,url_field,url_button])
         new=urwid.Filler(urwid.AttrMap(wid, None, focus_map=''))
-        ok_screen_box=urwid.LineBox(new, title='', title_align='center', tlcorner='┌', tline='─', lline='│', trcorner='┐', blcorner='└', rline='│', bline='─', brcorner='┘')
+        ok_screen_box=urwid.LineBox(
+                                    new, title='', title_align='center',
+                                    tlcorner='┌', tline='─', lline='│',
+                                    trcorner='┐', blcorner='└', rline='│',
+                                    bline='─', brcorner='┘'
+                                    )
         self.top.original_widget=ok_screen_box
 
     def load_list_screen(self,button):
@@ -180,7 +218,12 @@ class player_ui(YoutubePlayer):
             urwid.connect_signal(b, 'click', self.list_load)
             saved_list.append(urwid.AttrMap(b,None,focus_map='reversed'))
         box=urwid.ListBox(urwid.SimpleFocusListWalker(saved_list))
-        list_box=urwid.LineBox(box, title='', title_align='center', tlcorner='┌', tline='─', lline='│', trcorner='┐', blcorner='└', rline='│', bline='─', brcorner='┘')
+        list_box=urwid.LineBox(
+                                box, title='', title_align='center',
+                                tlcorner='┌', tline='─', lline='│',
+                                trcorner='┐', blcorner='└', rline='│',
+                                bline='─', brcorner='┘'
+                                )
         list_box_padding=urwid.Padding(list_box,right=0,left=0)
         self.top.original_widget=list_box_padding
 

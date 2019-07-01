@@ -19,7 +19,6 @@ import math
 from .settings import PL_DIR
 import locale
 
-## REPLACE WITH SEMAPHORES
 def structure_time(seconds, minutes, hours):
     if(seconds < 10 and hours == 0 and minutes < 10):
         structured_time = "0" + str(minutes) + ":0" + str(seconds)
@@ -156,14 +155,10 @@ class YoutubePlayer:
         return self.list_data
 
     def get_url_and_name(self,index):
-        try:
-            return [
+        return [
                 self.playlist['items'][int(index)]['pafy'].getbestaudio().url,
                 self.playlist['items'][int(index)]['pafy'].title
                 ]
-        except Exception as error:
-            print(f"There is an error in fetching this {error}")
-            return False
 
     def get_next_index(self):
         try:
@@ -226,9 +221,12 @@ class YoutubePlayer:
         if math.isnan(self.index):
             pass
         #Play current index
-        details = self.get_url_and_name(index)
-        if not details:
-            return False
+        try:
+            details = self.get_url_and_name(index)
+        except:
+            print("Couldn't fetch this song. Playing next.") #This needs to be in a new urwid error floating box. Will fix it later.
+            self.play_next()
+            return True
         url = details[0]
         self._currentSong = details[1]
         if(url==False):
@@ -250,7 +248,11 @@ class YoutubePlayer:
 
     def get_time_details(self):
         if self.player.duration:
-            total_seconds = round(self.player.duration)
+            try:
+                total_seconds = round(self.player.duration)
+            except:
+                print("Couldn't fetch this song. Playing next.") #This needs to be in a new urwid error floating box. Will fix it later.
+                self.play_next()
         else:
             total_seconds = 0
         minutes = int(total_seconds / 60)
@@ -338,29 +340,17 @@ class YoutubePlayer:
         return self.volume
 
     def set_volume(self, volume):
-        if volume > 100 or volume < 0:
-            return False
-
+        assert(0 < volume < 100)
         self.volume = volume
         self.player['volume'] = volume
-
         return True
 
     def volume_up(self):
-        volume = self.get_volume() + 10
-        if volume > 100:
-            volume = 100
-
+        volume = min(self.get_volume() + 10, 100)
         self.set_volume(volume)
-
         return True
 
     def volume_down(self):
-        volume = self.get_volume() - 10
-
-        if volume < 0:
-            volume = 0
-
+        volume = max(self.get_volume() - 10, 0)
         self.set_volume(volume)
-
         return True
