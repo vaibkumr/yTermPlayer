@@ -299,6 +299,14 @@ class YoutubePlayer:
                         self.play_at_index(int(_next))
                 self._song_changed = True
 
+    def play_first(self):
+        self.stop()
+        self.play_at_index(0)
+
+    def play_last(self):
+        self.stop()
+        self.play_at_index(self.queue_len - 1)
+
     def play_next(self):
         self.stop()
         _next_index = self.get_next_index()
