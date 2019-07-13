@@ -288,6 +288,8 @@ class player_ui(YoutubePlayer):
         key_dict={
         'n':self.player_object.play_next,
         'p':self.player_object.play_prev,
+        'h':self.player_object.play_first,
+        'e':self.player_object.play_last,
         ' ':self.toggle_playing,
         's':self.save_list,
         '1': self.change_play_mode_to_repeat_one,
