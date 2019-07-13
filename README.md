@@ -63,6 +63,8 @@ ytTerm player itself is open source. Feel free to modify and distribute the code
 | enter | select option/play song at selection |
 | n     | play next song                       |
 | p     | play previous song                   |
+| h     | play first song                      |
+| e     | play last song                       |
 | space | pause/play song                      |
 | u     | volume up                            |
 | d     | volume down                          |
