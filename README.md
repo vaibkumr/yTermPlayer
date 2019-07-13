@@ -77,8 +77,6 @@ more features coming soon
 
 
 ### Screenshots
-### Working video:  <https://youtu.be/rQpO1qBmxlY>
-### Working video 2: <https://youtu.be/bQrNtcIcHc0>
 ### Start  screen :
 ![Start Screem](https://i.imgur.com/rvVUmDP.png)
 ### The UI will automatically use your terminal colors.
@@ -88,6 +86,9 @@ more features coming soon
    [urwid]: <https://github.com/urwid/urwid>
    [vlc]: <https://github.com/oaubert/python-vlc>
    [pafy]: <https://github.com/mps-youtube/pafy>
+
+#### Working video:  <https://youtu.be/rQpO1qBmxlY>
+#### Working video 2: <https://youtu.be/bQrNtcIcHc0>
 
 ### FAQ
 -   How to fix out of range/url not found errors?
