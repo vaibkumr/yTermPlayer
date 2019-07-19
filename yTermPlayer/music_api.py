@@ -247,14 +247,13 @@ class YoutubePlayer:
         return self.playlist['title']
 
     def get_time_details(self):
+        total_seconds = 0
         if self.player.duration:
             try:
                 total_seconds = round(self.player.duration)
             except:
                 print("Couldn't fetch this song. Playing next.") #This needs to be in a new urwid error floating box. Will fix it later.
                 self.play_next()
-        else:
-            total_seconds = 0
         minutes = int(total_seconds / 60)
         seconds = total_seconds % 60
         self.time_details['total_time'] = structure_time_len(seconds, minutes)
