@@ -274,7 +274,7 @@ class YoutubePlayer:
 
     def start_playing(self):
         if not self.player:
-            self.player = mpv.MPV()
+            self.player = mpv.MPV(video=False)
         thread = threading.Thread(target = self.continous_player, args={})
         thread.daemon = True
         thread.start()
