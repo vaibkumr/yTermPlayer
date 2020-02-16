@@ -46,7 +46,7 @@ class YoutubePlayer:
         #URL of list
         self.url = ""
         #Player volume
-        self.volume = 100
+        self.volume = 70
         #Set unlock on continous_player
         self._lock = False
         #Semaphore for the shared _lock variable

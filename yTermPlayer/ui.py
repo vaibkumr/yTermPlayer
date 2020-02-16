@@ -119,11 +119,12 @@ class player_ui(YoutubePlayer):
     def make_player_ui(self):
         #Draws the main player UI
         #Header
+        vol = self.player_object.volume // 10
         self.txt2_1 = urwid.Text("--/--",align='left')
         self.txt2_2 = urwid.Text("Playing: None",align='center')
         self.txt2_3 = urwid.Text(u"Mode: Repeat off",align='right')
-        cols=urwid.Columns(
-                            [self.txt2_1, self.txt2_2, self.txt2_3],
+        self.txt2_4 = urwid.Text(f"Volume: {(vol-1)*'█'}{(9-vol)*'░'}",align='right')
+        cols=urwid.Columns([self.txt2_1, self.txt2_2, self.txt2_3, self.txt2_4],
                             dividechars=0, focus_column=None,
                             min_width=1, box_columns=None
                             )
@@ -274,9 +275,15 @@ class player_ui(YoutubePlayer):
 
     def volume_up(self):
         self.player_object.volume_up()
+        self.update_volume_bar()
 
     def volume_down(self):
         self.player_object.volume_down()
+        self.update_volume_bar()
+
+    def update_volume_bar(self):
+        vol = self.player_object.volume // 10
+        self.txt2_4.set_text(f"Volume: {(vol-1)*'█'}{(9-vol)*'░'}")
 
     def save_list(self):
 
