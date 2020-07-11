@@ -5,6 +5,7 @@ Play youtube playlists as audio on linux terminal
 [![PyPI version](https://badge.fury.io/py/yTermPlayer.svg)](https://badge.fury.io/py/yTermPlayer)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/yTermPlayer.svg)](https://pypi.python.org/pypi/yTermPlayer/)
 [![PyPI license](https://img.shields.io/pypi/l/yTermPlayer.svg)](https://pypi.python.org/pypi/yTermPlayer/)
+[![Downloads](https://pepy.tech/badge/ytermplayer)](https://pepy.tech/project/ytermplayer)
 
 ## About
 ytTerm player is a terminal youtube music player. It's completely written in python.
