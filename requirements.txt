@@ -2,5 +2,5 @@ pafy==0.5.4
 python-dateutil==2.7.5
 python-mpv==0.3.9
 urwid==2.0.1
-virtualenv==16.0.0
+virtualenv==20.26.6
 youtube-dl==2019.5.20
